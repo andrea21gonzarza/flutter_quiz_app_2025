@@ -16,20 +16,17 @@ class StartScreen extends StatelessWidget {
           width: 250,
           color: const Color.fromARGB(200, 255, 255, 255),
         ),
-        const SizedBox(
-          height: 50,
-        ),
+        const SizedBox(height: 50),
         const Text(
           'Learn Flutter the fun way!',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-          ),
+          style: TextStyle(color: Colors.white, fontSize: 20),
         ),
-        const SizedBox(
-          height: 50,
+        const SizedBox(height: 50),
+        OutlinedButtonExample(
+          'Start Quiz',
+          startQuiz,
+          const Icon(Icons.arrow_right_alt),
         ),
-        OutlinedButtonExample('Start Quiz',startQuiz, const Icon(Icons.arrow_right_alt)),
       ],
     );
   }
