@@ -55,9 +55,7 @@ class _QuizState extends State<Quiz> {
     Widget screenWidget = StartScreen(switchScreen);
 
     if (activeScreen == 'questions-screen') {
-      screenWidget = QuestionsScreen(
-        chooseAnswer,
-      );
+      screenWidget = QuestionsScreen(chooseAnswer);
     }
 
     if (activeScreen == 'results-screen') {
@@ -67,7 +65,7 @@ class _QuizState extends State<Quiz> {
     return MaterialApp(
       home: Scaffold(
         body: screenWidget,
-        backgroundColor: const Color.fromARGB(255, 93, 4, 134),
+        backgroundColor: const Color.fromARGB(255, 2, 50, 113),
       ),
     );
   }
