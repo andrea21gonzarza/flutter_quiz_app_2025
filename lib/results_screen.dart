@@ -5,7 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_quiz_1/button.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen(this.chosenAnswers, this.restartQuiz, {super.key}); // Constructor function
+  const ResultsScreen(
+    this.chosenAnswers,
+    this.restartQuiz, {
+    super.key,
+  }); // Constructor function
 
   final void Function() restartQuiz;
   final List<String> chosenAnswers;
@@ -18,7 +22,7 @@ class ResultsScreen extends StatelessWidget {
         'question_index': i,
         'question': questions[i].text,
         'correct_answer': questions[i].answers[0],
-        'user_answer': chosenAnswers[i]
+        'user_answer': chosenAnswers[i],
       });
     }
 
@@ -29,9 +33,10 @@ class ResultsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final summaryData = getSummaryData();
     final numTotalQuestions = questions.length;
-    final numCorrectQuestions = summaryData.where((data) {
-      return data['user_answer'] == data['correct_answer'];
-    }).length;
+    final numCorrectQuestions =
+        summaryData.where((data) {
+          return data['user_answer'] == data['correct_answer'];
+        }).length;
 
     return SizedBox(
       width: double.infinity,
@@ -42,21 +47,21 @@ class ResultsScreen extends StatelessWidget {
           children: [
             Text(
               'You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!',
-              style: GoogleFonts.lato(
-                color: const Color.fromARGB(255, 224, 170, 235),
+              style: GoogleFonts.montserrat(
+                color: const Color.fromARGB(255, 216, 227, 6),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             QuestionsSummary(summaryData),
-            const SizedBox(
-              height: 30,
+            const SizedBox(height: 30),
+            OutlinedButtonExample(
+              'Restart Quiz',
+              restartQuiz,
+              const Icon(Icons.arrow_right_alt),
             ),
-            OutlinedButtonExample('Restart Quiz',restartQuiz, const Icon(Icons.arrow_right_alt)),
           ],
         ),
       ),
