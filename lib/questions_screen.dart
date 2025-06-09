@@ -4,7 +4,7 @@ import 'package:flutter_quiz_1/models/questions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen(this.onSelectAnswer ,{super.key});
+  const QuestionsScreen(this.onSelectAnswer, {super.key});
 
   final void Function(String answer) onSelectAnswer;
 
@@ -50,6 +50,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 answerQuestion(item);
               });
             }),
+            const SizedBox(height: 40), // Espacio antes del ícono
+            const Icon(Icons.help_outline, size: 50, color: Colors.white),
           ],
         ),
       ),
